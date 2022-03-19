@@ -269,8 +269,8 @@ const Add = () =>{
                             aria-describedby="simple-modal-description"
                         >
                                 <Widget header="Start burning titles?"  headerAction={null}>
-                                Note this will take time! Do not close your browser.
-                                A circle will process until 100%.
+                               <p> Note this will take time! Do not close your browser.
+                                A circle will process until 100%.</p>
                                   <br />
                                                             <br />
                                                             <div style={{ width: "100%", textAlign: "center" }}>

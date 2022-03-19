@@ -57,11 +57,7 @@ namespace Textifator.Controllers
 						.FileName.Trim('"');
 
 					using var createHash = MD5.Create();
-					var bytes = new byte[32];
-					using (var rng = new RNGCryptoServiceProvider())
-					{
-						rng.GetBytes(bytes);
-					}
+					var bytes = RandomNumberGenerator.GetBytes(32);
 
 					string hash = null;
 					if (fileLen < _formOptions.MemoryBufferThreshold) //fast hash otherwise, we'll break memory

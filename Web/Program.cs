@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -19,6 +20,19 @@ namespace Textifator
 				{
 					webBuilder.UseStartup<Startup>();
 				})
+			
+			 .ConfigureAppConfiguration((_, builder) =>
+			 {
+				 //var isService = Environment.GetFolderPath(Environment.SpecialFolder.System);
+				 var curDir = Directory.GetCurrentDirectory();
+				 var baseDir = AppContext.BaseDirectory;
+				 if (!curDir.Equals(baseDir, StringComparison.OrdinalIgnoreCase))
+				 {
+					 curDir = baseDir.TrimEnd(Path.DirectorySeparatorChar);
+					 Console.WriteLine("using {0} as base", curDir);
+				 }
+				 builder.SetBasePath(curDir);
+			 })
 			.ConfigureWebHost(host =>
 			{
 				host.ConfigureKestrel(options =>
@@ -35,7 +49,7 @@ namespace Textifator
 				//add hosted service 'works' but it fails
 				// regarding the Custom CancellationToken
 				services.AddHostedService<CustomWebHostService>();
-			}).UseWindowsService();
+			}).UseConsoleLifetime();
 
 	}
 
