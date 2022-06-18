@@ -2,12 +2,11 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/TestProject1/app_data/media
-/TestProject1/bin/Debug/net5.0/app_data/media
-/TestProject1/bin/Debug/net5.0
-/TestProject1/obj
-/Web/bin
-/.vs
-/Web/obj
-/Web/UploadedFiles
-/publish/Textifator/arm
+TestProject1/app_data/media
+TestProject1/bin/
+TestProject1/obj
+Web/bin
+.vs
+Web/obj
+Web/UploadedFiles
+publish/Textifator/arm
